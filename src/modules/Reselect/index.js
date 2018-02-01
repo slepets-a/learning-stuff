@@ -4,10 +4,10 @@ import DataTable from '../DataTable';
 
 const Reselect = () => {
   return (
-   <div>
-       <h2>Reselect component</h2>
-       <DataTable />
-   </div>
+    <div>
+      <h2>Reselect component</h2>
+      <DataTable/>
+    </div>
   )
 };
 

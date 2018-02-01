@@ -1,8 +1,8 @@
 import React from 'react';
 import {withStyles} from 'material-ui/styles';
+import DataTableRow from '../DataTableRow';
 import Table, {TableBody, TableCell, TableHead, TableRow} from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
-import Checkbox from 'material-ui/Checkbox';
 import TextField from 'material-ui/TextField';
 
 const styles = theme => ({
@@ -63,8 +63,22 @@ class DataTable extends React.Component {
     super(props);
     this.state = {
       filter: '',
+      memberships: generatedData,
+      filteredMemberships: generatedData,
     };
   }
+
+  filterMemberships = (filter, memberships) => memberships.filter(membership => membership.description.includes(filter));
+
+  onChangeFilterHandler = (event) => {
+    const {
+      value,
+    } = event.target;
+    this.setState((prevState) => ({
+      filter: value,
+      filteredMemberships: this.filterMemberships(value, prevState.memberships),
+    }))
+  };
 
   render() {
     const {
@@ -72,25 +86,9 @@ class DataTable extends React.Component {
     } = this.props;
     const {
       filter,
+      filteredMemberships,
     } = this.state;
-    const tableRows = generatedData.map(({id, description, type, isActive}) => {
-      return (
-        <TableRow key={id}>
-          <TableCell>{id}</TableCell>
-          <TableCell>{description}</TableCell>
-          <TableCell>{type}</TableCell>
-          <TableCell>
-            <Checkbox
-              checked={isActive}
-            />
-          </TableCell>
-        </TableRow>
-      )
-    });
-
-    onChangeFilterHandler = (event) => {
-      console.log(event);
-    };
+    const dataTableRows = filteredMemberships.map(membership => <DataTableRow key={membership.id} membership={membership}/>);
 
     return (
       <Paper className={classes.root}>
@@ -114,7 +112,7 @@ class DataTable extends React.Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {tableRows}
+            {dataTableRows}
           </TableBody>
         </Table>
       </Paper>
