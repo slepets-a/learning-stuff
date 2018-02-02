@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Reboot from 'material-ui/Reboot';
-import logo from './logo.svg';
+import reactLogo from './react.svg';
+import reduxLogo from './redux.svg';
 import './styles.css';
 
 import Reselect from '../Reselect';
@@ -11,8 +12,8 @@ class App extends Component {
       <div className="App">
         <Reboot/>
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo"/>
-          <h1 className="App-title">Welcome to React</h1>
+          <img src={reactLogo} className="App-logo" alt="logo"/>
+          <img src={reduxLogo} className="App-logo" alt="logo"/>
         </header>
         <Reselect/>
       </div>
