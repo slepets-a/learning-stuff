@@ -5,7 +5,7 @@ import Table, {TableBody, TableCell, TableHead, TableRow} from 'material-ui/Tabl
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import store from '../../store';
-import {FILTER_MEMBERSHIPS_PHRASE} from "./store/actions";
+import {GET_MEMBERSHIPS, FILTER_MEMBERSHIPS_PHRASE} from "./store/actions";
 
 const styles = theme => ({
   root: {
@@ -78,15 +78,16 @@ class DataTable extends React.Component {
     } = event.target;
     //
     store.dispatch(FILTER_MEMBERSHIPS_PHRASE(value));
-    store.subscribe(() => {
-      console.log(store.getState());
-    });
     //
     this.setState((prevState) => ({
       filter: value,
       filteredMemberships: this.filterMemberships(value, prevState.memberships),
     }))
   };
+
+  componentDidMount() {
+    store.dispatch(GET_MEMBERSHIPS(generatedData));
+  }
 
   render() {
     const {

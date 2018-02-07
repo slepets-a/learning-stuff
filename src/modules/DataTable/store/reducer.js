@@ -1,20 +1,29 @@
-const initialState = {};
+import membershipsActionsTypes from './actions';
+
+const initialState = {
+  filter: '',
+  memberships: [],
+};
+
+const handleGetMemberships = (state, action) => ({
+  ...state,
+  memberships: action.payload.memberships,
+});
+
+const handleFilterMembershipsPhrase = (state, action) => ({
+  ...state,
+  filter: action.payload.filter,
+});
+
+const handlers = {
+  [membershipsActionsTypes.GET_MEMBERSHIPS]: handleGetMemberships,
+  [membershipsActionsTypes.FILTER_MEMBERSHIPS_PHRASE]: handleFilterMembershipsPhrase,
+};
 
 const membershipsReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'GET_MEMBERSHIPS':
-      return {
-        ...state,
-        memberships: action.payload,
-      };
-    case 'FILTER_MEMBERSHIPS_PHRASE':
-      return {
-        ...state,
-        filter: action.payload,
-      };
-    default:
-      return state;
-  }
+  const handler = handlers[action.type];
+  console.log(action);
+  return handler ? handler(state, action) : state;
 };
 
 export default membershipsReducer;
