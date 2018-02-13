@@ -1,6 +1,6 @@
 const membershipsActionsTypes = {
   GET_MEMBERSHIPS: 'GET_MEMBERSHIPS',
-  FILTER_MEMBERSHIPS_PHRASE: 'FILTER_MEMBERSHIPS_PHRASE',
+  FILTER_MEMBERSHIPS: 'FILTER_MEMBERSHIPS',
 };
 
 // action creators
@@ -11,8 +11,8 @@ export const GET_MEMBERSHIPS = memberships => ({
   },
 });
 
-export const FILTER_MEMBERSHIPS_PHRASE = filter => ({
-  type: 'FILTER_MEMBERSHIPS_PHRASE',
+export const FILTER_MEMBERSHIPS = filter => ({
+  type: 'FILTER_MEMBERSHIPS',
   payload: {
     filter,
   },
