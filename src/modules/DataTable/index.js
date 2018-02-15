@@ -73,11 +73,8 @@ class DataTable extends React.Component {
   // filterMemberships = (filter, memberships) => memberships.filter(membership => membership.description.includes(filter));
 
   onChangeFilterHandler = (event) => {
-    const {
-      value,
-    } = event.target;
     //
-    store.dispatch(FILTER_MEMBERSHIPS(value));
+    store.dispatch(FILTER_MEMBERSHIPS(event.target.value));
     //
     // this.setState((prevState) => ({
     //   filter: value,

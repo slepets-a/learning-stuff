@@ -6,16 +6,12 @@ const membershipsActionsTypes = {
 // action creators
 export const GET_MEMBERSHIPS = memberships => ({
   type: 'GET_MEMBERSHIPS',
-  payload: {
-    memberships,
-  },
+  memberships,
 });
 
 export const FILTER_MEMBERSHIPS = filter => ({
   type: 'FILTER_MEMBERSHIPS',
-  payload: {
-    filter,
-  },
+  filter,
 });
 
 export default membershipsActionsTypes;

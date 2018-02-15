@@ -6,16 +6,16 @@ const initialState = {
   filteredMemberships: [],
 };
 
-const handleGetMemberships = (state, action) => ({
+const handleGetMemberships = (state, {memberships}) => ({
   ...state,
-  memberships: action.payload.memberships,
-  filteredMemberships: action.payload.memberships,
+  memberships,
+  filteredMemberships: memberships,
 });
 
-const handleFilterMemberships = (state, action) => ({
+const handleFilterMemberships = (state, {filter}) => ({
   ...state,
-  filter: action.payload.filter,
-  filteredMemberships: state.memberships.filter(membership => membership.description.includes(action.payload.filter)),
+  filter: filter,
+  filteredMemberships: state.memberships.filter(membership => membership.description.includes(filter)),
 });
 
 const handlers = {
