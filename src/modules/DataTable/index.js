@@ -5,6 +5,7 @@ import Table, {TableBody, TableCell, TableHead, TableRow} from 'material-ui/Tabl
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import store from '../../store';
+import {connect} from 'react-redux';
 import {GET_MEMBERSHIPS, FILTER_MEMBERSHIPS} from "./store/actions";
 
 const styles = theme => ({
@@ -61,27 +62,6 @@ const generatedData = [
 
 class DataTable extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     filter: '',
-  //     memberships: generatedData,
-  //     filteredMemberships: generatedData,
-  //   };
-  // }
-
-  // filterMemberships = (filter, memberships) => memberships.filter(membership => membership.description.includes(filter));
-
-  onChangeFilterHandler = (event) => {
-    //
-    store.dispatch(FILTER_MEMBERSHIPS(event.target.value));
-    //
-    // this.setState((prevState) => ({
-    //   filter: value,
-    //   filteredMemberships: this.filterMemberships(value, prevState.memberships),
-    // }))
-  };
-
   componentDidMount() {
     store.dispatch(GET_MEMBERSHIPS(generatedData));
   }
@@ -89,18 +69,9 @@ class DataTable extends React.Component {
   render() {
     const {
       classes,
-    } = this.props;
-    // const {
-    //   filter,
-    //   filteredMemberships,
-    // } = this.state;
-    const {
-      memberships,
-    } = store.getState();
-    const {
-      filter,
       filteredMemberships,
-    } = memberships;
+      filter,
+    } = this.props;
     const dataTableRows = filteredMemberships.map(membership => <DataTableRow key={membership.id} membership={membership}/>);
 
     return (
@@ -133,4 +104,21 @@ class DataTable extends React.Component {
   }
 }
 
-export default withStyles(styles)(DataTable);
+const mapStateToProps = state => {
+  const {
+    memberships,
+    filter,
+  } = state;
+  return {
+    filteredMemberships: memberships.filter(membership => membership.description.includes(filter)),
+    filter: filter,
+  }
+};
+
+const mapDispatchToProps = dispatch => ({
+  onChangeFilterHandler: event => {
+    dispatch(FILTER_MEMBERSHIPS(event.target.value))
+  }
+});
+
+export default withStyles(styles)(connect(DataTable)); //TODO: Add compose and maybe lifecycle
