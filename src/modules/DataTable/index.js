@@ -1,5 +1,6 @@
 import React from 'react';
 import {withStyles} from 'material-ui/styles';
+import {compose} from 'redux';
 import DataTableRow from '../DataTableRow';
 import Table, {TableBody, TableCell, TableHead, TableRow} from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
@@ -121,4 +122,8 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default withStyles(styles)(connect(DataTable)); //TODO: Add compose and maybe lifecycle
+//TODO: Add compose and maybe lifecycle
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withStyles(styles)
+)(DataTable);
