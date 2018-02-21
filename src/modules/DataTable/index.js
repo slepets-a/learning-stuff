@@ -122,8 +122,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-//TODO: Add compose and maybe lifecycle
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  withStyles(styles)
+  withStyles(styles),
 )(DataTable);
