@@ -1,4 +1,4 @@
-const membershipsActionsTypes = {
+const dataTableActionsTypes = {
   GET_MEMBERSHIPS: 'GET_MEMBERSHIPS',
   FILTER_MEMBERSHIPS: 'FILTER_MEMBERSHIPS',
 };
@@ -6,12 +6,16 @@ const membershipsActionsTypes = {
 // action creators
 export const GET_MEMBERSHIPS = memberships => ({
   type: 'GET_MEMBERSHIPS',
-  memberships,
+  payload: {
+    memberships,
+  },
 });
 
 export const FILTER_MEMBERSHIPS = filter => ({
   type: 'FILTER_MEMBERSHIPS',
-  filter,
+  payload: {
+    filter,
+  },
 });
 
-export default membershipsActionsTypes;
+export default dataTableActionsTypes;

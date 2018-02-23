@@ -7,7 +7,7 @@ let store = createStore(
 );
 
 store.subscribe(() => {
-  console.log(store.getState());
+  console.log(`Store: `, store.getState());
 });
 
 export default store;

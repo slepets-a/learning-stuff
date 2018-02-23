@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import membershipsReducer from '../../modules/DataTable/store/reducer';
+import dataTableReducer from '../../modules/DataTable/store/reducer';
 
 const rootReducer = combineReducers({
-  memberships: membershipsReducer,
+  dataTable: dataTableReducer,
 });
 
 export default rootReducer;

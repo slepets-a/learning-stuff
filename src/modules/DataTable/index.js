@@ -70,10 +70,14 @@ class DataTable extends React.Component {
   render() {
     const {
       classes,
-      filteredMemberships,
+      memberships,
       filter,
+      onChangeFilterHandler,
     } = this.props;
-    const dataTableRows = filteredMemberships.map(membership => <DataTableRow key={membership.id} membership={membership}/>);
+    const dataTableRows = memberships
+      .filter(membership => membership.description.includes(filter))
+      .map(membership => <DataTableRow key={membership.id} membership={membership}/>)
+    ;
 
     return (
       <Paper className={classes.root}>
@@ -84,7 +88,7 @@ class DataTable extends React.Component {
             label="Search"
             margin="normal"
             value={filter}
-            onChange={this.onChangeFilterHandler}
+            onChange={onChangeFilterHandler}
           />
         </div>
         <Table>
@@ -107,12 +111,12 @@ class DataTable extends React.Component {
 
 const mapStateToProps = state => {
   const {
-    memberships,
     filter,
-  } = state;
+    memberships,
+  } = state.dataTable;
   return {
-    filteredMemberships: memberships.filter(membership => membership.description.includes(filter)),
-    filter: filter,
+    filter,
+    memberships,
   }
 };
 

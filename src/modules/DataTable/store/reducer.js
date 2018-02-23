@@ -1,30 +1,29 @@
-import membershipsActionsTypes from './actions';
+import dataTableActionsTypes from './actions';
 
 const initialState = {
   filter: '',
   memberships: [],
 };
 
-const handleGetMemberships = (state, {memberships}) => ({
+const handleGetMemberships = (state, action) => ({
   ...state,
-  memberships,
+  memberships: action.payload.memberships,
   filter: '',
 });
 
-const handleFilterMemberships = (state, {filter}) => ({
+const handleFilterMemberships = (state, action) => ({
   ...state,
-  filter: filter,
+  filter: action.payload.filter,
 });
 
 const handlers = {
-  [membershipsActionsTypes.GET_MEMBERSHIPS]: handleGetMemberships,
-  [membershipsActionsTypes.FILTER_MEMBERSHIPS]: handleFilterMemberships,
+  [dataTableActionsTypes.GET_MEMBERSHIPS]: handleGetMemberships,
+  [dataTableActionsTypes.FILTER_MEMBERSHIPS]: handleFilterMemberships,
 };
 
-const membershipsReducer = (state = initialState, action) => {
+const dataTableReducer = (state = initialState, action) => {
   const handler = handlers[action.type];
-  console.log(action);
   return handler ? handler(state, action) : state;
 };
 
-export default membershipsReducer;
+export default dataTableReducer;
