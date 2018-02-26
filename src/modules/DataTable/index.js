@@ -1,12 +1,12 @@
 import React from 'react';
 import {withStyles} from 'material-ui/styles';
 import {compose} from 'redux';
+import {connect} from 'react-redux';
 import DataTableRow from '../DataTableRow';
 import Table, {TableBody, TableCell, TableHead, TableRow} from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import store from '../../store';
-import {connect} from 'react-redux';
 import {GET_MEMBERSHIPS, FILTER_MEMBERSHIPS} from "./store/actions";
 
 const styles = theme => ({
