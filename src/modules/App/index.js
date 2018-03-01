@@ -5,6 +5,7 @@ import reduxLogo from './redux.svg';
 import './styles.css';
 
 import Reselect from '../Reselect';
+import HOC from '../HOC';
 
 class App extends Component {
   render() {
@@ -15,7 +16,8 @@ class App extends Component {
           <img src={reactLogo} className="App-logo" alt="logo"/>
           <img src={reduxLogo} className="App-logo" alt="logo"/>
         </header>
-        <Reselect/>
+        {/*<Reselect/>*/}
+        <HOC/>
       </div>
     );
   }
