@@ -9,9 +9,16 @@ const newProps = {
   additionalInfo: 'extended by extender function',
 };
 
-const extender = (newProps, InitialComponent) => {
-  return () => (<InitialComponent/>)
-};
+// must return a func
+const extender = (newProps) =>
+  (OldComponent) => {
+    const ModifiedComponent = (oldProps) => (<div>
+      <OldComponent {...oldProps}/>
+      <p>{newProps.additionalInfo}</p>
+    </div>);
+
+    return ModifiedComponent;
+  };
 
 const InitialComponent = ({title, name}) => (
   <div>
@@ -20,7 +27,8 @@ const InitialComponent = ({title, name}) => (
   </div>
 );
 
-const ExtendedComponent = extender(newProps, InitialComponent);
+// ExtendedComponent must be a func
+const ExtendedComponent = extender(newProps)(InitialComponent);
 
 const HOC = () => (
   <div>
