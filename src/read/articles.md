@@ -4,3 +4,5 @@
 2. [Sneak Peek: Beyond React 16](https://reactjs.org/blog/2018/03/01/sneak-peek-beyond-react-16.html)
 3. [React.js pure render performance anti-pattern](https://medium.com/@esamatti/react-js-pure-render-performance-anti-pattern-fb88c101332f)
 4. [Learning Udemy React course](https://hyuna.udemy.com/react-2nd-edition/)
+5. [Continuous Integration для новичков](https://habrahabr.ru/post/352282/)
+6. [10 Interview Questions Every JavaScript Developer Should Know](https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95)
