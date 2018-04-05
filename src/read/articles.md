@@ -6,3 +6,4 @@
 4. [Learning Udemy React course](https://hyuna.udemy.com/react-2nd-edition/)
 5. [Continuous Integration для новичков](https://habrahabr.ru/post/352282/)
 6. [10 Interview Questions Every JavaScript Developer Should Know](https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95)
+7. [Here are examples of everything new in ECMAScript 2016, 2017, and 2018](https://medium.freecodecamp.org/here-are-examples-of-everything-new-in-ecmascript-2016-2017-and-2018-d52fa3b5a70e)
