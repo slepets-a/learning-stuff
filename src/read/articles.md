@@ -6,3 +6,5 @@
 4. [Learning Udemy React course](https://hyuna.udemy.com/react-2nd-edition/)
 5. [Continuous Integration для новичков](https://habrahabr.ru/post/352282/)
 6. [10 Interview Questions Every JavaScript Developer Should Know](https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95)
+7. [Progressive Web Apps on iOS are here 🚀](https://medium.com/@firt/progressive-web-apps-on-ios-are-here-d00430dee3a7)
+8. [How to NOT React: Common Anti-Patterns and Gotchas in React](https://codeburst.io/how-to-not-react-common-anti-patterns-and-gotchas-in-react-40141fe0dcd)
